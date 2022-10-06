@@ -8,16 +8,19 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { ligthTheme, darkTheme } from '../themes';
 import { UIProvider } from '../context/ui';
+import { EntriesProvider } from '../context/entries';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <UIProvider>
+    <EntriesProvider>
+      <UIProvider>
       <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </UIProvider>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </UIProvider>
+    </EntriesProvider>
   )
 }
 
